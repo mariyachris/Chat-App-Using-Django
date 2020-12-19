@@ -1,0 +1,75 @@
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Let's Chat</title>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body style="background-image: url('{% static 'img\b1.png' %}')">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="/">Let's Chat</a>
+              </div>
+              <ul class="nav navbar-nav navbar-right">
+                  
+                  <li><a href="{% url 'notes' %}"><span class="glyphicon glyphicon-edit"></span> Take Notes</a></li>
+                  <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
+                
+              </ul>
+            </div>
+          </nav>
+          
+        <div class="container">
+        
+          <table class="table ">
+            <thead class="thead" style="background-color:#003380;color:white;">
+              <tr>
+                
+                <th scope="col" style="text-align: center;">Friends List</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for  x in users %}
+                
+                <td scope="row" style="text-align: center;">
+                
+                   <b>{{x}}</b>
+
+                </td>
+                
+              </tr>
+              {% endfor %}
+
+              <tr>
+
+                <td scope="row" style="text-align: center;">
+                
+                  <form method="post" action="{% url 'chatroom' %}">
+                    {% csrf_token %}
+
+                    <input type="text" placeholder="Enter Friend Name" name="friend" required>
+
+                    <button class="btn btn--radius btn--green" type="submit" style="background-color: rgb(219, 224, 230); display: inline-block;"><b>Start chat</b></button>
+          
+                  </form>
+
+
+                  
+                </td>
+              </tr>
+
+              
+            </tbody>
+          </table>
+           
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.6.2/basic/ckeditor.js"></script>
+        
+    </body>
+</html>

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Let's Chat</title>
+
+    <link href="{% static 'css\app.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" style="background-image: url('{% static 'img\b1.png' %}')">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading" style="background-image: url('{% static 'img\b2.png' %}')"></div>
+                <div class="card-body">
+                    <h2 class="title" style="text-align: center; color: rgb(57, 127, 218);">Your Notes</h2>
+                    <form method="post">
+                        {% csrf_token %}
+
+                        
+                                {% for  x in notes %}
+                                
+                                <div class="input-group">
+                                    {{x}}
+                                </div>
+                             
+                              {% endfor %}
+                              
+                            
+           
+                        <br><br>
+                        <div class="input-group" style="text-align: center;">
+                            <a href="{% url 'chat' %}">Go back to continue chat</a>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
+
+

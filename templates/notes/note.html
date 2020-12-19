@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Let's Chat</title>
+
+    <link href="{% static 'css\app.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-red p-t-180 p-b-100 font-robo" style="background-image: url('{% static 'img\b1.png' %}')">
+        <div class="wrapper wrapper--w960">
+            <div class="card card-2">
+                <div class="card-heading" style="background-image: url('{% static 'img\b2.png' %}')"></div>
+                <div class="card-body">
+                    <h2 class="title" style="text-align: center; color: rgb(57, 127, 218);">Save Your Notes</h2>
+                    <form method="post">
+                        {% csrf_token %}
+
+                        
+
+                        <div class="input-group">
+                            <input class="input--style-2" type="text" placeholder="Enter Your Notes" name="note" required>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                        <div class="p-t-30" style="display: inline-block;">
+							<button class="btn btn--radius btn--green" type="submit" style="background-color: rgb(57, 127, 218); display: inline-block; align-items: center;">Save</button>
+							
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="p-t-30" style="display: inline-block;">
+							<button class="btn btn--radius btn--green" type="submit" style="background-color: rgb(57, 127, 218); display: inline-block;"><a href="{% url 'viewnotes' %}" >View Saved Notes</a></button>
+							
+                        </div>
+                        <br><br><br><br><br><br>
+                        <div class="input-group" style="text-align: center;">
+                            <a href="{% url 'chat' %}">Go back to continue chat</a>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>
